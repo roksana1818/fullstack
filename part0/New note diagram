@@ -1,0 +1,11 @@
+https://www.mermaidchart.com/raw/b83b3d36-8c90-4cd0-92b1-60aac7066130?theme=light&version=v0.1&format=svg
+sequenceDiagram
+    participant User
+    participant Browser
+    participant Server
+
+    User->>Browser: Writes note and clicks Save button
+    Browser->>Server: POST https://studies.cs.helsinki.fi/exampleapp/new_note
+    Server-->>Browser: Note saved successfully
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/notes
+    Server-->>Browser: Updated notes list

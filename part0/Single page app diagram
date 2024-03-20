@@ -1,0 +1,31 @@
+https://www.mermaidchart.com/raw/afb3f0e6-5297-4332-ac0d-baccd801e864?theme=light&version=v0.1&format=svg
+
+sequenceDiagram
+    participant User
+    participant Browser
+    participant Server
+
+    User->>Browser: Goes to https://studies.cs.helsinki.fi/exampleapp/spa
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/spa
+    activate Server
+    Server-->>Browser: HTML document
+    deactivate Server
+
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/spa.css
+    activate Server
+    Server-->>Browser: the CSS file
+    deactivate Server
+
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/spa.js
+    activate Server
+    Server-->>Browser: the JavaScript file
+    deactivate Server
+
+    Note right of Browser: The browser starts executing the JavaScript code
+
+    Browser->>Server: GET https://studies.cs.helsinki.fi/exampleapp/data.json
+    activate Server
+    Server-->>Browser: [{ "content": "This is my second diagram", "date": "2023-02-12" }, ... ]
+    deactivate Server
+
+    Note right of Browser: The browser executes the callback function
